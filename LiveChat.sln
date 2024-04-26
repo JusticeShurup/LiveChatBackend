@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LiveChat.Authentication", "LiveChat.Authentication", "{66404F15-B962-4D83-9F56-5E00BDA97DD7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveChat.AuthService", "LiveChat.AuthService\LiveChat.AuthService.csproj", "{5FF5698E-B1BD-401F-B873-FBF86080AB46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LiveChat.Backend", "LiveChat.Backend", "{2403A24F-9454-4A52-8654-91B31CFDCCEB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveChat.API", "LiveChat.API\LiveChat.API.csproj", "{8F52E539-83E8-4F3A-B9E0-279AF1DC47E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChat.Domain", "LiveChat.Domain\LiveChat.Domain.csproj", "{730FF6B1-8824-4316-A960-8F2132FC0467}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChat.Application", "LiveChat.Application\LiveChat.Application.csproj", "{B5690F79-0A6C-4942-BB15-DB09E8F288D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChat.Infrastructure", "LiveChat.Infrastructure\LiveChat.Infrastructure.csproj", "{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FF5698E-B1BD-401F-B873-FBF86080AB46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF5698E-B1BD-401F-B873-FBF86080AB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF5698E-B1BD-401F-B873-FBF86080AB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF5698E-B1BD-401F-B873-FBF86080AB46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F52E539-83E8-4F3A-B9E0-279AF1DC47E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F52E539-83E8-4F3A-B9E0-279AF1DC47E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F52E539-83E8-4F3A-B9E0-279AF1DC47E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F52E539-83E8-4F3A-B9E0-279AF1DC47E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{730FF6B1-8824-4316-A960-8F2132FC0467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730FF6B1-8824-4316-A960-8F2132FC0467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730FF6B1-8824-4316-A960-8F2132FC0467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730FF6B1-8824-4316-A960-8F2132FC0467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5690F79-0A6C-4942-BB15-DB09E8F288D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5690F79-0A6C-4942-BB15-DB09E8F288D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5690F79-0A6C-4942-BB15-DB09E8F288D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5690F79-0A6C-4942-BB15-DB09E8F288D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5FF5698E-B1BD-401F-B873-FBF86080AB46} = {66404F15-B962-4D83-9F56-5E00BDA97DD7}
+		{8F52E539-83E8-4F3A-B9E0-279AF1DC47E7} = {2403A24F-9454-4A52-8654-91B31CFDCCEB}
+		{730FF6B1-8824-4316-A960-8F2132FC0467} = {2403A24F-9454-4A52-8654-91B31CFDCCEB}
+		{B5690F79-0A6C-4942-BB15-DB09E8F288D4} = {2403A24F-9454-4A52-8654-91B31CFDCCEB}
+		{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18} = {2403A24F-9454-4A52-8654-91B31CFDCCEB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0831888C-FAED-4F74-8133-F257243DA2A7}
+	EndGlobalSection
+EndGlobal
