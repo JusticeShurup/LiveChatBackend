@@ -54,6 +54,9 @@ namespace LiveChat.AuthService.Controllers
                 RefreshToken = _tokenService.GenerateRefreshToken(user, claims) 
             };
 
+            user.RefreshToken = response.RefreshToken;
+            _userManager.UpdateAsync(user);
+
             return Results.Ok(response);
         }
 

@@ -14,6 +14,14 @@ namespace LiveChat.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+
+        private readonly IHttpContextAccessor _httpContext;
+
+        public UserController(IHttpContextAccessor httpContext) 
+        {
+            _httpContext = httpContext;
+        }
+
         [Authorize]
         [Route("[action]")]
         [HttpPost]
@@ -27,10 +35,21 @@ namespace LiveChat.API.Controllers
         [Authorize]
         [Route("[action]")]
         [HttpPut]
-        public async Task<IResult> ChangeFirstName(ISender sender, [FromBody] UpdateUserCommand command)
+        public async Task<IResult> UpdateUserProfile(ISender sender, [FromBody] UpdateUserProfileCommand command)
         {
             await sender.Send(command);
+
             return Results.Ok();
+        }
+
+        [Authorize]
+        [Route("[action]")]
+        [HttpGet]
+        public async Task<IResult> GetImageBase64(ISender sender)
+        {
+            var response = await sender.Send(new GetImageQuery());
+
+            return Results.Ok(response);
         }
 
         [Authorize]

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace LiveChat.Application.Dtos
 {
-    public class UserDto
+    public class MessageDto
     {
         public Guid Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public byte[]? AvatarImage { get; set; }
+        public required string Text { get; set; }
+        public required UserDto User { get; set; }
     }
 }

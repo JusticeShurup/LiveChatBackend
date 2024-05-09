@@ -39,7 +39,13 @@ namespace LiveChat.AuthService
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => 
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DbConnection")));
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 6;
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false; 
+                options.Password.RequireLowercase = false;
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             builder.Services.AddAuthentication(options => 

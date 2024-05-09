@@ -28,7 +28,7 @@ namespace LiveChat.API.Middlewares
             string userId = (string)token.Payload.GetValueOrDefault("Id");
 
             context.User.Claims.Append(new System.Security.Claims.Claim("Id", userId));
-            
+
             await next.Invoke(context);
             return;
         }

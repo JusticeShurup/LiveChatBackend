@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace LiveChat.Application.Features.UserFeatures.Command
 {
-    public class UpdateUserCommand : IRequest
+    public class UpdateUserProfileCommand : IRequest
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? AvatarImage { get; set; }
     }
 }

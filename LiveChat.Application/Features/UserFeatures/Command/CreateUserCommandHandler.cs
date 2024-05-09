@@ -26,7 +26,7 @@ namespace LiveChat.Application.Features.UserFeatures.Command
         {
             Guid userId = Guid.Parse(_contextAccessor.HttpContext.User.FindFirst("Id")!.Value);
 
-            User user = new User(userId, request.FirstName, request.LastName, new List<Message>());
+            User user = new(userId, request.FirstName, request.LastName, new List<Message>());
             _unitOfWork.Users.Add(user);
             _unitOfWork.SaveChanges();
 

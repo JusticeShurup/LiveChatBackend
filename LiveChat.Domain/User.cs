@@ -1,4 +1,5 @@
-﻿namespace LiveChat.Domain
+﻿
+namespace LiveChat.Domain
 {
     public class User
     {
@@ -6,7 +7,9 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime CreatedDate { get; set; }
-        public ICollection<Message>? Messages { get; set; }
+        public ICollection<Message>? Messages { get; set; } = new List<Message>();
+        public byte[]? AvatarImage { get; set; }
+
 
         public User() { }
 
