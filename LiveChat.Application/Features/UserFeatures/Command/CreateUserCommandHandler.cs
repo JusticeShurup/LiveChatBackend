@@ -18,6 +18,7 @@ namespace LiveChat.Application.Features.UserFeatures.Command
 
         public CreateUserCommandHandler(IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor) 
         {
+            Console.WriteLine("Some cringe");
             _unitOfWork = unitOfWork;
             _contextAccessor = httpContextAccessor;
         }
