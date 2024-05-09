@@ -22,7 +22,6 @@ namespace LiveChat.API.Controllers
             _httpContext = httpContext;
         }
 
-        [Authorize]
         [Route("[action]")]
         [HttpPost]
         public async Task<IResult> CreateUser(ISender sender, CreateUserCommand command)
