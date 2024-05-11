@@ -48,11 +48,10 @@ namespace LiveChat.AuthService.Controllers
 
             using (var client = new HttpClient())
             {
-                JsonContent content = JsonContent.Create(new { FirstName = request!.FirstName, LastName = request!.LastName });
-                Console.WriteLine(content);
+                JsonContent content = JsonContent.Create(new {Id = user.Id, FirstName = request!.FirstName, LastName = request!.LastName });
                 using (var createResponse = await client.PostAsync("http://localhost:5098/api/User/CreateUser", content))
                 {
-                    if (createResponse.StatusCode != System.Net.HttpStatusCode.OK)
+                    if (createResponse.StatusCode != System.Net.HttpStatusCode.Created)
                     {
                         _userManager.DeleteAsync(user);
                         return Results.BadRequest(createResponse);

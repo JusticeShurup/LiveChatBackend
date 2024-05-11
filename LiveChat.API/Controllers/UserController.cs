@@ -4,6 +4,7 @@ using LiveChat.Application.Features.UserFeatures.Query;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LiveChat.API.Controllers
@@ -28,7 +29,7 @@ namespace LiveChat.API.Controllers
         {
             var response = await sender.Send(command);
 
-            return Results.Ok(response);
+            return Results.Created();
         }
 
         [Authorize]

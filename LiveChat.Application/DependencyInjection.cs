@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using LiveChat.Application.Services;
+using LiveChat.Application.Services.Interface;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace LiveChat.Application
@@ -12,6 +14,8 @@ namespace LiveChat.Application
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
             });
+
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }
