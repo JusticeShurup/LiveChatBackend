@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace LiveChat.Application.Features.UserFeatures.Command
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserDto>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand>
     {
         private readonly IUserService _userService;
 
@@ -21,21 +21,15 @@ namespace LiveChat.Application.Features.UserFeatures.Command
             _userService = userService;
         }
 
-        public async Task<UserDto> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            User user = _userService.CreateUser(new UserDto
+            _userService.CreateUser(new UserDto
             {
                 Id = request.Id,
                 FirstName = request.FirstName,
                 LastName = request.LastName
             });
-
-            return new UserDto()
-            {
-                Id = user.Id,
-                FirstName = user.FirstName,
-                LastName = user.LastName
-            };
         }
+
     }
 }

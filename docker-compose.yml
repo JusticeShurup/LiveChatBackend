@@ -1,0 +1,63 @@
+version: '3.4'
+
+networks:
+  auth_network:
+    driver: bridge
+  api_network:
+    driver: bridge
+
+services:
+  livechat.authservice:
+    image: ${DOCKER_REGISTRY-}livechatauthservice
+    build:
+      context: .
+      dockerfile: LiveChat.AuthService/Dockerfile
+    networks:
+      - auth_network
+    ports:
+      - "5201:5201"
+    environment:
+      - ConnectionStrings__DbConnection=Server=auth_db;DataBase=LiveChatAuth;Port=5432;User Id=postgres;Password=super;Pooling=true
+      - ASPNETCORE_URLS=http://+:5201
+  livechat.api:
+    image: ${DOCKER_REGISTRY-}livechatapi
+    build:
+      context: .
+      dockerfile: LiveChat.API/Dockerfile
+    networks:
+      - api_network
+    ports:
+      - "5098:5098" 
+    environment:
+      - ConnectionStrings__DbConnection=Server=api_db;DataBase=LiveChat;Port=5432;User Id=postgres;Password=super;Pooling=true
+      - ASPNETCORE_URLS=http://+:5098
+  livechat.api.db:
+    container_name: api_db
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: super
+      POSTGRES_DB: LiveChat
+    ports:
+      - "5433:5432"
+    networks:
+      - api_network
+    volumes:
+      - livechatapi-data:/var/lib/postgresql/data
+  livechat.auth.db:
+    container_name: auth_db
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: super
+      POSTGRES_DB: LiveChatAuth
+    ports:
+      - "5432:5432"
+    networks:
+      - auth_network
+    volumes:
+      - livechatauth-data:/var/lib/postgresql/data
+
+volumes:
+  livechatapi-data:
+  livechatauth-data:

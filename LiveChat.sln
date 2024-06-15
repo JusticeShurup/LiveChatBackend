@@ -11,11 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LiveChat.Backend", "LiveCha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveChat.API", "LiveChat.API\LiveChat.API.csproj", "{8F52E539-83E8-4F3A-B9E0-279AF1DC47E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChat.Domain", "LiveChat.Domain\LiveChat.Domain.csproj", "{730FF6B1-8824-4316-A960-8F2132FC0467}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveChat.Domain", "LiveChat.Domain\LiveChat.Domain.csproj", "{730FF6B1-8824-4316-A960-8F2132FC0467}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChat.Application", "LiveChat.Application\LiveChat.Application.csproj", "{B5690F79-0A6C-4942-BB15-DB09E8F288D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveChat.Application", "LiveChat.Application\LiveChat.Application.csproj", "{B5690F79-0A6C-4942-BB15-DB09E8F288D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChat.Infrastructure", "LiveChat.Infrastructure\LiveChat.Infrastructure.csproj", "{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveChat.Infrastructure", "LiveChat.Infrastructure\LiveChat.Infrastructure.csproj", "{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3E84C50A-9CC8-4FF3-B039-094AC8AD4B1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAED6EC5-3C87-48A3-B18C-4AA1D40D4E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E84C50A-9CC8-4FF3-B039-094AC8AD4B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E84C50A-9CC8-4FF3-B039-094AC8AD4B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E84C50A-9CC8-4FF3-B039-094AC8AD4B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E84C50A-9CC8-4FF3-B039-094AC8AD4B1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

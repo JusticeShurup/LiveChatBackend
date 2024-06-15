@@ -23,7 +23,7 @@ namespace LiveChat.Application.Features.UserFeatures.Command
 
         public Task Handle(UpdateUserProfileCommand request, CancellationToken cancellationToken)
         {
-            Guid userId = Guid.Parse(_contextAccessor.HttpContext.User.FindFirst("Id")!.Value);
+            Guid? userId = Guid.Parse(_contextAccessor.HttpContext.User.FindFirst("Id")!.Value);
             if (userId == null)
             {
                 throw new ArgumentNullException(nameof(userId));

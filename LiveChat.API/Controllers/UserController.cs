@@ -1,11 +1,14 @@
 ﻿using LiveChat.Application.Dtos;
 using LiveChat.Application.Features.UserFeatures.Command;
 using LiveChat.Application.Features.UserFeatures.Query;
+using LiveChat.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
 
 namespace LiveChat.API.Controllers
 {
@@ -27,7 +30,7 @@ namespace LiveChat.API.Controllers
         [HttpPost]
         public async Task<IResult> CreateUser(ISender sender, CreateUserCommand command)
         {
-            var response = await sender.Send(command);
+            await sender.Send(command);
 
             return Results.Created();
         }
