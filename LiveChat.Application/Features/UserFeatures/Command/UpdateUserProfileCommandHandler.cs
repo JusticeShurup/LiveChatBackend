@@ -12,8 +12,8 @@ namespace LiveChat.Application.Features.UserFeatures.Command
 {
     public class UpdateUserProfileCommandHandler : IRequestHandler<UpdateUserProfileCommand>
     {
-        private IUnitOfWork _unitOfWork;
-        private IHttpContextAccessor _contextAccessor;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IHttpContextAccessor _contextAccessor;
 
         public UpdateUserProfileCommandHandler(IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor)
         {
@@ -38,7 +38,9 @@ namespace LiveChat.Application.Features.UserFeatures.Command
             user.LastName = (request.LastName != null && request.LastName.Length != 0) ? request.LastName : user.LastName;
             try
             {
-                string base64 = request.AvatarImage!.Substring("data:image/jpeg;base64,".Length);
+                string base64 = request.AvatarImage!;
+                base64 = base64.Replace('-', '+').Replace('_', '/').PadRight(4 * ((base64.Length + 3) / 4), '='); ;
+                base64 = request.AvatarImage!.Substring("data:image/jpeg;base64,".Length);
                 user.AvatarImage = (request.AvatarImage != null && request.AvatarImage.Length != 0) ? Convert.FromBase64String(base64) : user.AvatarImage;
             }
             catch (Exception ex)

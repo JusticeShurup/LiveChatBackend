@@ -46,17 +46,25 @@ namespace LiveChat.AuthService.Controllers
                 return Results.BadRequest(result);
             }
 
-            using (var client = new HttpClient())
+            try
             {
-                JsonContent content = JsonContent.Create(new {Id = user.Id, FirstName = request!.FirstName, LastName = request!.LastName });
-                using (var createResponse = await client.PostAsync("http://localhost:5098/api/User/CreateUser", content))
+                using (var client = new HttpClient())
                 {
-                    if (createResponse.StatusCode != System.Net.HttpStatusCode.Created)
+                    JsonContent content = JsonContent.Create(new { Id = user.Id, FirstName = request!.FirstName, LastName = request!.LastName });
+                    using (var createResponse = await client.PostAsync("http://livechat.api:5098/api/User/CreateUser", content))
                     {
-                        _userManager.DeleteAsync(user);
-                        return Results.BadRequest(createResponse);
-                    } 
+                        if (createResponse.StatusCode != System.Net.HttpStatusCode.Created)
+                        {
+                            await _userManager.DeleteAsync(user);
+                            return Results.BadRequest(createResponse);
+                        } 
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                await _userManager.DeleteAsync(user);
+                return Results.BadRequest(ex.Message);
             }
 
 
@@ -69,7 +77,7 @@ namespace LiveChat.AuthService.Controllers
             };
 
             user.RefreshToken = response.RefreshToken;
-            _userManager.UpdateAsync(user);
+            await _userManager.UpdateAsync(user);
 
             return Results.Ok(response);
         }

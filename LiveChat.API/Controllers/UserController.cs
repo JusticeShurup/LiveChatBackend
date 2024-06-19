@@ -48,9 +48,19 @@ namespace LiveChat.API.Controllers
         [Authorize]
         [Route("[action]")]
         [HttpGet]
-        public async Task<IResult> GetImageBase64(ISender sender)
+        public async Task<IResult> GetUserImageBase64(ISender sender)
         {
             var response = await sender.Send(new GetImageQuery());
+
+            return Results.Ok(response);
+        }
+
+        [Authorize]
+        [Route("[action]")]
+        [HttpGet]
+        public async Task<IResult> GetAllUsers(ISender sender, [FromQuery] GetAllUsersQuery query)
+        {
+            var response = await sender.Send(query);
 
             return Results.Ok(response);
         }

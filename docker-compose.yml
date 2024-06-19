@@ -14,6 +14,7 @@ services:
       dockerfile: LiveChat.AuthService/Dockerfile
     networks:
       - auth_network
+      - api_network
     ports:
       - "5201:5201"
     environment:
@@ -26,6 +27,7 @@ services:
       dockerfile: LiveChat.API/Dockerfile
     networks:
       - api_network
+      - auth_network
     ports:
       - "5098:5098" 
     environment:
@@ -52,7 +54,7 @@ services:
       POSTGRES_PASSWORD: super
       POSTGRES_DB: LiveChatAuth
     ports:
-      - "5432:5432"
+      - "5434:5432"
     networks:
       - auth_network
     volumes:

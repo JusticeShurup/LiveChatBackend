@@ -13,5 +13,10 @@ namespace LiveChat.Application.Dtos
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public byte[]? AvatarImage { get; set; }
+
+        public static UserDto FromUser(User user)
+        {
+            return new UserDto() { Id = user.Id, FirstName = user.FirstName, LastName = user.LastName, AvatarImage = user.AvatarImage };
+        }
     }
 }
