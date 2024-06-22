@@ -20,7 +20,7 @@ namespace LiveChat.Application.Features.UserFeatures.Query
 
         public Task<List<UserDto>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
-            var users = _unitOfWork.Users.GetAll().Skip((request.Page - 1) * request.PageSize).Take(request.PageSize);
+            var users = _unitOfWork.Users.Where(user => true).Skip((request.Page - 1) * request.PageSize).Take(request.PageSize);
             
             var usersDtos = new List<UserDto>();
             foreach (var user in users)

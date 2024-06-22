@@ -16,7 +16,7 @@ namespace LiveChat.Infrastructure.Data
         public LiveChatDbContext(DbContextOptions<LiveChatDbContext> options) 
             : base(options)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,6 +24,7 @@ namespace LiveChat.Infrastructure.Data
             modelBuilder.Entity<User>()
                 .HasMany(user => user.Messages)
                 .WithOne(message => message.User);
+
             modelBuilder.Entity<Message>()
                 .HasOne(message => message.User)
                 .WithMany(user => user.Messages);

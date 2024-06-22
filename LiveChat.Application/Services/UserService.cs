@@ -21,15 +21,7 @@ namespace LiveChat.Application.Services
 
         public User CreateUser(UserDto userDto)
         {
-            User user = new() 
-            { 
-                Id = userDto.Id,  
-                AvatarImage = userDto.AvatarImage,
-                FirstName = userDto.FirstName,
-                LastName = userDto.LastName,
-                CreatedDate = DateTime.UtcNow,
-                Messages = new List<Message>()
-            };
+            User user = new(userDto.Id, userDto.FirstName, userDto.LastName); 
             _unitOfWork.Users.Add(user);
             _unitOfWork.SaveChanges();
             

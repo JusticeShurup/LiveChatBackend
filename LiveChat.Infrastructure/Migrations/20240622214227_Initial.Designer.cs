@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LiveChat.Infrastructure.Migrations
 {
     [DbContext(typeof(LiveChatDbContext))]
-    [Migration("20240426185335_Avatar")]
-    partial class Avatar
+    [Migration("20240622214227_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

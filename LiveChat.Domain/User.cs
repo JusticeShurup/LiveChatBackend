@@ -7,19 +7,18 @@ namespace LiveChat.Domain
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime CreatedDate { get; set; }
-        public ICollection<Message>? Messages { get; set; } = new List<Message>();
+        public ICollection<Message>? Messages { get; }
         public byte[]? AvatarImage { get; set; }
 
 
         public User() { }
 
-        public User(Guid id, string firstName, string lastName, ICollection<Message>? messages)
+        public User(Guid id, string firstName, string lastName)
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
             CreatedDate = DateTime.UtcNow;
-            Messages = messages;
         }
     }
 }

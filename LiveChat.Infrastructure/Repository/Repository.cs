@@ -2,6 +2,7 @@
 using LiveChat.Application.Repository;
 using LiveChat.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace LiveChat.Infrastructure.Repository
@@ -23,14 +24,35 @@ namespace LiveChat.Infrastructure.Repository
             Entities.Add(entity);
         }
 
-        public T? Get(Expression<Func<T, bool>> filter)
+        public T? Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
-            return Entities.Where(filter).FirstOrDefault();
+            IQueryable<T> query = Entities;
+            query = query.Where(filter);
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+            return query.FirstOrDefault();
+
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T>? Where(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
-            return Entities;
+            IQueryable<T> query = Entities;
+            query = query.Where(filter);
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+            return query;
         }
 
         public void Remove(T entity)
@@ -48,9 +70,5 @@ namespace LiveChat.Infrastructure.Repository
             Entities.Update(entity);
         }
 
-        public IEnumerable<T> Where(Expression<Func<T, bool>> filter)
-        {
-            return Entities.Where(filter);
-        }
     }
 }

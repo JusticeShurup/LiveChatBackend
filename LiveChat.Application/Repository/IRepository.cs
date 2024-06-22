@@ -11,9 +11,8 @@ namespace LiveChat.Application.Repository
     {
         void Add(T entity);
         void Update(T entity);
-        T? Get(Expression<Func<T, bool>> filter);
-        IEnumerable<T> GetAll();
-        IEnumerable<T> Where(Expression<Func<T, bool>> filter);
+        T? Get(Expression<Func<T, bool>> filter, string? includeProperties = null);
+        IEnumerable<T> Where(Expression<Func<T, bool>> filter, string? includeProperties = null);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entities);
     }

@@ -16,8 +16,4 @@
     <ProjectReference Include="..\LiveChat.Domain\LiveChat.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\MessageFeatures\Query\" />
-  </ItemGroup>
-
 </Project>
